@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Top Down Looter Shooter.sln"
+    "dotnet.defaultSolution": "Github Repos.sln"
 }

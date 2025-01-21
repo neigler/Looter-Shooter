@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.nathaneigler.tools": {
+      "version": "file:C:/Users/natha/Documents/Unity Packages",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "10.1.4",
       "depth": 1,
