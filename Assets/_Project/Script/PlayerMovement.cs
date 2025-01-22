@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Manage the animations of idle, movement, and others
         AnimationController();
+
+
     }
 
     private void FixedUpdate()
