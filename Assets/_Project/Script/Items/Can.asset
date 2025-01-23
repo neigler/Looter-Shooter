@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Can
   m_EditorClassIdentifier: 
   sprite: {fileID: 8033092973025764044, guid: 1b478d530cd6d72479688f903119be7c, type: 3}
+  weight: 1
   itemTag: 0
   equipmentPrefab: {fileID: 0}

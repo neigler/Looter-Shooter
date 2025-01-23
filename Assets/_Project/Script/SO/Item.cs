@@ -6,6 +6,7 @@ public enum SlotTag { None, Head, Chest, Legs, Feet }
 public class Item : ScriptableObject
 {
     public Sprite sprite;
+    public float weight;
     public SlotTag itemTag;
 
     [Header("If the item can be equipped")]

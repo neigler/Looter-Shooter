@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] Transform draggablesTransform;
     [SerializeField] InventoryItem itemPrefab;
+    [SerializeField] public float currentWeight;
 
     [Header("Item List")]
     [SerializeField] public List<Item> items = new List<Item>();

@@ -8,11 +8,14 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
     public CanvasGroup canvasGroup { get; private set; }
 
     public Item myItem { get; set; }
+    private float weight;
     public InventorySlot activeSlot { get; set; }
+    public Inventory inventory;
 
 
     void Awake()
     {
+        inventory = GameObject.Find("Inventory Background").GetComponent<Inventory>();
         canvasGroup = GetComponent<CanvasGroup>();
         itemIcon = GetComponent<Image>();
     }
@@ -23,6 +26,8 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler
         activeSlot.myItem = this;
         myItem = item;
         itemIcon.sprite = item.sprite;
+        weight = myItem.weight;
+        inventory.currentWeight += weight;
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -224,7 +224,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,7 +256,7 @@ TextureImporter:
       PlayerSpritesAndAnimations_2: 6228528938698568879
       PlayerSpritesAndAnimations_3: -8597802994122750066
       PlayerSpritesAndAnimations_4: 6250318911693503758
-      PlayerSpritesAndAnimations_5: -3191789036952181173
+      Rifle: -3191789036952181173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
