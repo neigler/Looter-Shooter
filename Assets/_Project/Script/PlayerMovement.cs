@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator anim;
     private Rigidbody2D rb;
     private Vector2 dir;
+    [HideInInspector] public bool canRotate;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        canRotate = true;
     }
 
     private void Update()
@@ -54,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
     private void LookAtMouse()
     {
         // Rotate the player object towards the mouse
+        if (!canRotate)
+            return;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.up = mousePos - new Vector2(transform.position.x, transform.position.y);
     }

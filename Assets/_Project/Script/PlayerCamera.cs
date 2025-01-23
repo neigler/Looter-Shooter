@@ -10,6 +10,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private float cameraDist = 3.5f;
     [SerializeField] private float smoothTime = .2f, zStart;
     Vector3 target, mousePos, refVel, shakeOffset;
+    [HideInInspector] public bool canMove = true;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+            return;
         mousePos = CaptureMousePos();
         target = UpdateTargetPos();
         UpdateCameraPosition();

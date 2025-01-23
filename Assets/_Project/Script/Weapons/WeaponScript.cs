@@ -12,7 +12,7 @@ public class WeaponScript : MonoBehaviour
     private bool holdingWeapon = true;
     private bool shooting;
     private bool reloading;
-    private bool canShoot;
+    [HideInInspector] public bool canShoot;
 
     private void Awake()
     {
