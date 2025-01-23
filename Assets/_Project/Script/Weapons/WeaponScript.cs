@@ -3,45 +3,55 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     [Header("Gun Properties")]
-    [SerializeField] private WeaponProperties currentWeapon;
+    [SerializeField] public WeaponProperties currentWeapon;
     [SerializeField] private SpriteRenderer bodySprite;
+    [SerializeField] private Sprite noWeaponSprite;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletsPrefab;
     [SerializeField] public int bulletsLeft;
-
-    private bool holdingWeapon = true;
     private bool shooting;
     private bool reloading;
+    [HideInInspector] public bool holdingWeapon = true;
     [HideInInspector] public bool canShoot;
 
     private void Awake()
     {
-        holdingWeapon = true;
-        bulletsLeft = currentWeapon.magSize;
+        holdingWeapon = false;
         canShoot = true;
+        if (currentWeapon != null)
+            bulletsLeft = currentWeapon.magSize;
     }
 
     private void Update()
     {
         // Input Managing and automatic managing
         WeaponInputManager();
+
+        // Animation / Sprite changing Manager
+        SpriteChangingManager();
     }
 
     private void WeaponInputManager()
     {
         // Control automatic vs non automatic
-        if (currentWeapon.isAutomatic)
-            shooting = Input.GetKey(KeyCode.Mouse0);
-        else
-            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        if (currentWeapon != null)
+        {
+            if (currentWeapon.isAutomatic)
+                shooting = Input.GetKey(KeyCode.Mouse0);
+            else
+                shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        // Control reloading buttons
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < currentWeapon.magSize && !reloading)
-            Reload();
+            // Control reloading buttons
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < currentWeapon.magSize && !reloading)
+                Reload();
 
-        // Shoot if the requirements are met.
-        if (canShoot && shooting && !reloading && bulletsLeft > 0 && holdingWeapon)
-            FireWeapon();
+            // Shoot if the requirements are met.
+            if (canShoot && shooting && !reloading && bulletsLeft > 0 && holdingWeapon)
+                FireWeapon();
+
+            if (Input.GetKeyDown(KeyCode.Q) && holdingWeapon && !reloading)
+                DropGun();
+        }
     }
 
 
@@ -75,6 +85,19 @@ public class WeaponScript : MonoBehaviour
         Invoke("FinishReload", currentWeapon.reloadTime);
     }
 
+    private void SpriteChangingManager()
+    {
+        if (!holdingWeapon)
+        {
+            bodySprite.sprite = noWeaponSprite;
+        }
+        else
+        {
+            if (currentWeapon != null)
+                bodySprite.sprite = currentWeapon.heldWeaponSprite;
+        }
+    }
+
     private void FinishReload()
     {
         // Finish reloading
@@ -84,7 +107,9 @@ public class WeaponScript : MonoBehaviour
 
     public void DropGun()
     {
-
+        Instantiate(currentWeapon.weaponPrefab, transform.position, Quaternion.identity);
+        currentWeapon = null;
+        holdingWeapon = false;
     }
 
     private void ResetShot()

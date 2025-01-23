@@ -14,6 +14,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Start()
     {
+        canMove = true;
         target = player.position;
         zStart = transform.position.z;
     }

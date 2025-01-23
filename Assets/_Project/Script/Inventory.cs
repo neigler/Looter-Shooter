@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +15,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] InventoryItem itemPrefab;
 
     [Header("Item List")]
-    [SerializeField] Item[] items;
+    [SerializeField] public List<Item> items = new List<Item>();
 
     [Header("Debug")]
     [SerializeField] Button giveItemBtn;
@@ -28,7 +31,7 @@ public class Inventory : MonoBehaviour
         Item _item = item;
         if (_item == null)
         {
-            int random = Random.Range(0, items.Length);
+            int random = Random.Range(0, items.Count);
             _item = items[random];
         }
 

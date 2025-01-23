@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2529e8c057ab94fb519d1d805ef968, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  heldWeaponSprite: {fileID: 0}
+  heldWeaponSprite: {fileID: 9051975795268937003, guid: 8c3458136897e5146bbee58e2ac7eff1, type: 3}
   shootingCooldown: 0.5
   damage: 25
   spread: 0
   bulletsPerShot: 1
   reloadTime: 1
   bulletSpeed: 5600
+  weaponPrefab: {fileID: 7044487954742044483, guid: e301822d225020f4e97f257401c1a9c7, type: 3}
   magSize: 15
   isAutomatic: 0
   autoReload: 0

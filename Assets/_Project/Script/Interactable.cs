@@ -1,27 +1,44 @@
 using UnityEngine;
+using System;
 
 public class Interactable : MonoBehaviour
 {
     public bool item, weapon;
     public Item invItem;
-    public Inventory slot;
-    [Header("Item List")]
-    [SerializeField] Item[] items;
+    public WeaponProperties weaponProperties;
+    public Inventory inventory;
+    public WeaponScript ws;
     bool inCollider = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-
+        ws = GameObject.Find("Weapon Controller").GetComponent<WeaponScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && inCollider && item)
         {
-            slot.SpawnInventoryItem(invItem);
+            inventory.items.Clear();
+            inventory.items.Add(invItem);
+            inventory.SpawnInventoryItem();
+            Destroy(this.gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && inCollider && weapon)
+        {
+            // Drop original weapon
+            if (ws.currentWeapon != null)
+                Instantiate(ws.currentWeapon.weaponPrefab, transform.position, Quaternion.identity);
+
+            // Equip new one
+            ws.currentWeapon = weaponProperties;
+            ws.holdingWeapon = true;
+            ws.bulletsLeft = ws.currentWeapon.magSize;
+            Destroy(this.gameObject);
         }
     }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
