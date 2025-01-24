@@ -25,7 +25,7 @@ public class InventoryToggle : MonoBehaviour
         {
             // Variables
             opened = true;
-            playerMovement.speed = 0;
+            playerMovement.currentSpeed = 0;
             playerMovement.canRotate = false;
             cameraController.canMove = false;
             weaponController.canShoot = false;
@@ -34,7 +34,7 @@ public class InventoryToggle : MonoBehaviour
         {
             // Variables
             opened = false;
-            playerMovement.speed = 5;
+            playerMovement.currentSpeed = 5;
             playerMovement.canRotate = true;
             cameraController.canMove = true;
             weaponController.canShoot = true;

@@ -1,30 +1,37 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
+public enum WeightClass
+{
+    noHeavy,
+    lilHeavy,
+    mediumHeavy,
+    largeHeavy
+}
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory Singleton;
     public static InventoryItem carriedItem;
 
+    [Header("GUI Objects")]
+    [SerializeField] private TextMeshProUGUI weightText;
+    [SerializeField] InventoryItem itemPrefab;
+    [SerializeField] PlayerMovement player;
+    [SerializeField] Transform draggablesTransform;
     [SerializeField] InventorySlot[] inventorySlots;
 
-    [SerializeField] Transform draggablesTransform;
-    [SerializeField] InventoryItem itemPrefab;
+    [Header("Variables")]
     [SerializeField] public float currentWeight;
-
-    [Header("Item List")]
+    [SerializeField] public WeightClass weightClass;
     [SerializeField] public List<Item> items = new List<Item>();
-
-    [Header("Debug")]
-    [SerializeField] Button giveItemBtn;
 
     void Awake()
     {
         Singleton = this;
-        giveItemBtn.onClick.AddListener(delegate { SpawnInventoryItem(); });
+        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     public void SpawnInventoryItem(Item item = null)
@@ -49,6 +56,8 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
+        WeightCalculation();
+
         if (carriedItem == null) return;
         carriedItem.transform.position = Input.mousePosition;
     }
@@ -92,5 +101,45 @@ public class Inventory : MonoBehaviour
             case SlotTag.Feet:
                 break;
         }
+    }
+
+    private void WeightCalculation()
+    {
+        // Weight class calculation
+        if (currentWeight >= 15)
+            weightClass = WeightClass.lilHeavy;
+        else if (currentWeight <= 0)
+            weightClass = WeightClass.noHeavy;
+
+        if (currentWeight >= 45)
+            weightClass = WeightClass.mediumHeavy;
+        else if (currentWeight <= 0)
+            weightClass = WeightClass.noHeavy;
+
+        if (currentWeight >= 80)
+            weightClass = WeightClass.largeHeavy;
+        else if (currentWeight <= 0)
+            weightClass = WeightClass.noHeavy;
+
+        // Player Speed calculation
+        if (weightClass == WeightClass.noHeavy)
+        {
+            player.currentSpeed = player.noHeavySpeed;
+        }
+        if (weightClass == WeightClass.lilHeavy)
+        {
+            player.currentSpeed = player.lilHeavySpeed;
+        }
+        if (weightClass == WeightClass.mediumHeavy)
+        {
+            player.currentSpeed = player.mediumHeavySpeed;
+        }
+        if (weightClass == WeightClass.largeHeavy)
+        {
+            player.currentSpeed = player.largeHeavySpeed;
+        }
+
+        // Weight Text
+        weightText.text = currentWeight + " lb";
     }
 }

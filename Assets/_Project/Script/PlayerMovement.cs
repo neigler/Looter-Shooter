@@ -4,7 +4,11 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Variables")]
-    [SerializeField] public float speed;
+    [SerializeField] public float currentSpeed;
+    [SerializeField] public float noHeavySpeed;
+    [SerializeField] public float lilHeavySpeed;
+    [SerializeField] public float mediumHeavySpeed;
+    [SerializeField] public float largeHeavySpeed;
 
     [Header("References")]
     [SerializeField] private Animator anim;
@@ -28,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Manage the animations of idle, movement, and others
         AnimationController();
-
-
     }
 
     private void FixedUpdate()
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovementManager()
     {
         // Move up, down, left or right depending on the input
-        rb.linearVelocity = new Vector2(dir.x * speed, dir.y * speed);
+        rb.linearVelocity = new Vector2(dir.x * currentSpeed, dir.y * currentSpeed);
     }
 
     private void InputManager()

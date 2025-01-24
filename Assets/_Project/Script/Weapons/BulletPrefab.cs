@@ -6,8 +6,8 @@ public class BulletPrefab : MonoBehaviour
     [Header("Destroy Layermasks")]
     [SerializeField] private string wall = "Obstacle";
 
-    [Header("Enemy Layermasks")]
-    [SerializeField] private String enemy = "Enemy";
+    //[Header("Enemy Layermasks")]
+    //[SerializeField] private String enemy = "Enemy";
 
     void OnCollisionEnter2D(Collision2D col)
     {
