@@ -25,6 +25,8 @@ public class BulletPrefab : MonoBehaviour
 
         if (col.gameObject.CompareTag(enemy))
         {
+            col.gameObject.GetComponent<EnemyStats>().currentHealth -= GameObject.Find("Weapon Controller").GetComponent<WeaponScript>().currentWeapon.damage;
+            col.gameObject.GetComponent<EnemyAI>().state = State.Pursuing;
             AudioManager.PlaySound(SoundType.BULLETHITENEMY);
             Instantiate(enemyHitParticle, transform.position, transform.rotation);
             Destroy(this.gameObject);
