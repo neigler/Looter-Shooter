@@ -9,10 +9,16 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletsPrefab;
     [SerializeField] public int bulletsLeft;
+
+    [Header("Screen Shake Properties")]
+    [SerializeField] private float scLength;
+    [SerializeField] private float scPower;
+    [SerializeField] private PlayerCamera cam;
     private bool shooting;
     private bool reloading;
     [HideInInspector] public bool holdingWeapon = true;
     [HideInInspector] public bool canShoot;
+
 
     private void Awake()
     {
@@ -63,11 +69,13 @@ public class WeaponScript : MonoBehaviour
         for (int i = 0; i < currentWeapon.bulletsPerShot; i++)
         {
             // Spawn bullet
-            GameObject bulletCopy = Instantiate(bulletsPrefab, firePoint.position, Quaternion.identity);
+            GameObject bulletCopy = Instantiate(bulletsPrefab, firePoint.position, this.transform.rotation);
             bulletCopy.GetComponent<Rigidbody2D>().AddForce(firePoint.up * currentWeapon.bulletSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         // Start animation (Cam shake, play sound, muzzle flash)
+        AudioManager.PlaySound(SoundType.SHOOT);
+        cam.StartShake(scLength, scPower);
 
         // Lower amounts of bullets left
         bulletsLeft--;
@@ -80,6 +88,7 @@ public class WeaponScript : MonoBehaviour
         reloading = true;
 
         // Play sound
+        AudioManager.PlaySound(SoundType.RELOAD);
 
         // Finish reload
         Invoke("FinishReload", currentWeapon.reloadTime);

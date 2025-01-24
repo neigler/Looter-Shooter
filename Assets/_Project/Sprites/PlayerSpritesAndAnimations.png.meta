@@ -237,6 +237,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BulletSprite
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 53
+        width: 1
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f313bcb3b0c394245a7e4a9131da8d52
+      internalID: 1927812426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodSplatter1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 50
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3bd76598ab2354090a4bf75ba77ad9
+      internalID: 506418505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -251,6 +295,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      BloodSplatter1: 506418505
+      BulletSprite: 1927812426
       PlayerSpritesAndAnimations_0: 9051975795268937003
       PlayerSpritesAndAnimations_1: -4551661570798718291
       PlayerSpritesAndAnimations_2: 6228528938698568879
