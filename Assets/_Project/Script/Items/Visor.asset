@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Visor
   m_EditorClassIdentifier: 
   sprite: {fileID: -488721925442295091, guid: 1b478d530cd6d72479688f903119be7c, type: 3}
-  weight: 2
+  weight: 4
   itemTag: 1
   equipmentPrefab: {fileID: 0}

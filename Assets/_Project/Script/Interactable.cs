@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public WeaponProperties weaponProperties;
     public Inventory inventory;
     public WeaponScript ws;
+    public GameObject highLight;
     bool inCollider = false;
 
     void Start()
@@ -45,6 +46,7 @@ public class Interactable : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             inCollider = true;
+            highLight.SetActive(true);
         }
     }
 
@@ -53,6 +55,7 @@ public class Interactable : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             inCollider = false;
+            highLight.SetActive(false);
         }
     }
 }

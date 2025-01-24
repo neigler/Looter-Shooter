@@ -23,18 +23,18 @@ public class InventoryToggle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !opened)
         {
-            // Variables
+            // Bools
             opened = true;
-            playerMovement.currentSpeed = 0;
+            playerMovement.canMove = false;
             playerMovement.canRotate = false;
             cameraController.canMove = false;
             weaponController.canShoot = false;
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && opened)
         {
-            // Variables
+            // Bools
             opened = false;
-            playerMovement.currentSpeed = 5;
+            playerMovement.canMove = true;
             playerMovement.canRotate = true;
             cameraController.canMove = true;
             weaponController.canShoot = true;

@@ -15,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 dir;
     [HideInInspector] public bool canRotate;
+    [HideInInspector] public bool canMove;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         canRotate = true;
+        canMove = true;
     }
 
     private void Update()
@@ -42,12 +44,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovementManager()
     {
+        // Stop function if cant move is true
+        if (!canMove)
+        {
+            rb.linearVelocity = new Vector2(0, 0);
+            return;
+        }
+
         // Move up, down, left or right depending on the input
         rb.linearVelocity = new Vector2(dir.x * currentSpeed, dir.y * currentSpeed);
     }
 
     private void InputManager()
     {
+        // Stop function if cant move is true
+        if (!canMove)
+            return;
+
         // X-Y Inputs to later use as movement
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
