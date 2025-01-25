@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform target;
     public float radius = 10;
-    public float nextWaypointDistance = 3f;
+    public float tooCloseRadius = 10;
     public State state;
 
     [Header("FOV")]
@@ -173,6 +173,14 @@ public class EnemyAI : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, playerRef.transform.position);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            state = State.Pursuing;
         }
     }
 

@@ -28,6 +28,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] public WeightClass weightClass;
     [SerializeField] public List<Item> items = new List<Item>();
 
+    [Header("Item Instantiates")]
+    [SerializeField] GameObject nightVisionLight;
+    private GameObject nightVisionLightGameObject;
+
     void Awake()
     {
         Singleton = this;
@@ -87,6 +91,30 @@ public class Inventory : MonoBehaviour
                 {
                     // Destroy item.equipmentPrefab on the player object
                     Debug.Log("Unequipped helmet on " + tag);
+
+                    if (nightVisionLightGameObject != null)
+                    {
+                        Destroy(nightVisionLightGameObject);
+                        nightVisionLightGameObject = null;
+                    }
+
+                }
+                else
+                {
+                    // Instanitiate item.equipmentPrefab on the player object;
+                    Debug.Log("Equipped " + item.myItem.name + " on " + tag);
+
+                    if (item.myItem.name == "NightVisionEye")
+                    {
+                        nightVisionLightGameObject = Instantiate(nightVisionLight, transform.position, Quaternion.identity);
+                    }
+                }
+                break;
+            case SlotTag.Chest:
+                if (item == null)
+                {
+                    // Destroy item.equipmentPrefab on the player object
+                    Debug.Log("Unequipped helmet on " + tag);
                 }
                 else
                 {
@@ -94,11 +122,29 @@ public class Inventory : MonoBehaviour
                     Debug.Log("Equipped " + item.myItem.name + " on " + tag);
                 }
                 break;
-            case SlotTag.Chest:
-                break;
             case SlotTag.Legs:
+                if (item == null)
+                {
+                    // Destroy item.equipmentPrefab on the player object
+                    Debug.Log("Unequipped helmet on " + tag);
+                }
+                else
+                {
+                    // Instanitiate item.equipmentPrefab on the player object;
+                    Debug.Log("Equipped " + item.myItem.name + " on " + tag);
+                }
                 break;
             case SlotTag.Feet:
+                if (item == null)
+                {
+                    // Destroy item.equipmentPrefab on the player object
+                    Debug.Log("Unequipped helmet on " + tag);
+                }
+                else
+                {
+                    // Instanitiate item.equipmentPrefab on the player object;
+                    Debug.Log("Equipped " + item.myItem.name + " on " + tag);
+                }
                 break;
         }
     }
