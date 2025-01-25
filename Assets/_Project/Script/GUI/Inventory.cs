@@ -97,14 +97,13 @@ public class Inventory : MonoBehaviour
                         Destroy(nightVisionLightGameObject);
                         nightVisionLightGameObject = null;
                     }
-
                 }
                 else
                 {
                     // Instanitiate item.equipmentPrefab on the player object;
                     Debug.Log("Equipped " + item.myItem.name + " on " + tag);
 
-                    if (item.myItem.name == "NightVisionEye")
+                    if (item.myItem.name == "NightVisionEye" && item.myItem.timeLeft <= 0)
                     {
                         nightVisionLightGameObject = Instantiate(nightVisionLight, transform.position, Quaternion.identity);
                     }

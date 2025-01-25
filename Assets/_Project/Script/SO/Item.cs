@@ -7,6 +7,8 @@ public class Item : ScriptableObject
 {
     public Sprite sprite;
     public float weight;
+    public float timeLeft;
+    public float totalTime;
     public SlotTag itemTag;
 
     [Header("If the item can be equipped")]
