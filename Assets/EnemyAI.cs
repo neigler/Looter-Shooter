@@ -66,6 +66,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+        {
+            target = GameObject.Find("Player").GetComponent<Transform>();
+        }
+        if (playerRef == null)
+        {
+            playerRef = GameObject.Find("Player").GetComponent<GameObject>();
+        }
         if (state == State.Pursuing)
         {
             ai.maxSpeed = 2.5f;

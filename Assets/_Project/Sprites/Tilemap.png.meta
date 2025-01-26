@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 1b478d530cd6d72479688f903119be7c
+guid: 2d2c8126f06dd344c8dfe28fe74225ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8033092973025764044
-    second: Items_0
-  - first:
-      213: 4337684191699249041
-    second: Items_1
-  - first:
-      213: -488721925442295091
-    second: Items_2
+      213: -7708920532220806285
+    second: Tilemap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlueCanNormal
+      name: Tilemap_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,21 +121,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc223e07f774b7f60800000000000000
-      internalID: 8033092973025764044
+      spriteID: 37b734b9e99640590800000000000000
+      internalID: -7708920532220806285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedCanNormal
+      name: Tilemap_1
       rect:
         serializedVersion: 2
         x: 16
@@ -149,109 +143,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 197af025acc823c30800000000000000
-      internalID: 4337684191699249041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlueCanHighlight
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dca21188ff5b739f0800000000000000
-      internalID: -488721925442295091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BlueCanBoth
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a50e813ffdceb9a44993365005bfdba6
-      internalID: -1446343671
+      spriteID: ca266969dc0f67d4d9ab161c404b351b
+      internalID: -1529890524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedCanHighlight
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd46b1d8fcf1dc24887bae7e01b5deb9
-      internalID: 2009885096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RedCanBoth
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87a75dcf20c5bd345a2b6255db4f7ee2
-      internalID: 1385878966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NightVisionEyeNormal
+      name: Tilemap_2
       rect:
         serializedVersion: 2
         x: 32
@@ -259,90 +165,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eab7cc20bf4704b49a8f544a95c33f85
-      internalID: -625931847
+      spriteID: 9d03afa382746e54d8bb3e668234950e
+      internalID: -1395058468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightVisionEyeHighLight
+      name: Tilemap_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 94
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a34879b0d636da545864670e1834fac0
-      internalID: 1276389279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NightVisionEyeBoth
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 137812a90b672d34fb18a41aab05855f
-      internalID: -396736156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RustedScrewNormal
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfc97ae55baa16d41b7fba4913b0ff74
-      internalID: -1112434635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RustedScrewHighlight
-      rect:
-        serializedVersion: 2
-        x: 48
+        x: 0
         y: 96
         width: 16
         height: 16
@@ -354,17 +194,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f6a748b840b951489a55f5d9af9379c
-      internalID: -892215993
+      spriteID: a1fba20f50143bd4ab08a5669a831c7d
+      internalID: 217238836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RustedScrewBoth
+      name: Tilemap_7
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d244344e198cd4896bb1f9c8dcfe2d
+      internalID: -71864046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 80
         width: 16
         height: 16
@@ -376,8 +238,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f745398e6d1e5944b3a839ce8fb00e2
-      internalID: -97730868
+      spriteID: b61d38e863606ee4eae153d880e62341
+      internalID: 1897708199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eaba2cd24ad1f34ba1651c8ee73b0ac
+      internalID: 896415686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1ef22f642ec514e964202144022303
+      internalID: -24008772
       vertices: []
       indices: 
       edges: []
@@ -386,7 +292,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eac9245e2e3aacd419179a6234c68223
+    spriteID: f6dbc8425b511f74c8ea4cd911046241
     internalID: 0
     vertices: []
     indices: 
@@ -396,18 +302,29 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BlueCanBoth: -1446343671
-      BlueCanHighlight: -488721925442295091
-      BlueCanNormal: 8033092973025764044
-      NightVisionEyeBoth: -396736156
-      NightVisionEyeHighLight: 1276389279
-      NightVisionEyeNormal: -625931847
-      RedCanBoth: 1385878966
-      RedCanHighlight: 2009885096
-      RedCanNormal: 4337684191699249041
-      RustedScrewBoth: -97730868
-      RustedScrewHighlight: -892215993
-      RustedScrewNormal: -1112434635
+      Tilemap_0: -7708920532220806285
+      Tilemap_1: -1529890524
+      Tilemap_10: 539215060
+      Tilemap_11: 1897708199
+      Tilemap_12: 896415686
+      Tilemap_13: -24008772
+      Tilemap_14: 588723431
+      Tilemap_15: -400043500
+      Tilemap_16: 348579591
+      Tilemap_17: 1147405409
+      Tilemap_18: -894614776
+      Tilemap_19: -832027463
+      Tilemap_2: -1395058468
+      Tilemap_20: 1811730992
+      Tilemap_21: 1371380576
+      Tilemap_22: 139483469
+      Tilemap_3: 1114754487
+      Tilemap_4: -715380365
+      Tilemap_5: -1762657748
+      Tilemap_6: 217238836
+      Tilemap_7: -71864046
+      Tilemap_8: -1675093329
+      Tilemap_9: 701906799
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

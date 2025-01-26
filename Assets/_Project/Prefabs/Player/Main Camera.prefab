@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4242425426311036627}
   - component: {fileID: 3948085096965780217}
   - component: {fileID: 7604658309992917941}
-  - component: {fileID: 8117046591213060425}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,27 +273,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f620f25cb7d8ec408c61e09c3346f4f, type: 3}
   - {fileID: 8300000, guid: 708aa2408928b6c40b0986e4e641d027, type: 3}
   - {fileID: 8300000, guid: 5f620f25cb7d8ec408c61e09c3346f4f, type: 3}
---- !u!114 &8117046591213060425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3412805786121972235}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_CropFrame: 0
-  m_GridSnapping: 1
-  m_FilterMode: 0
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0

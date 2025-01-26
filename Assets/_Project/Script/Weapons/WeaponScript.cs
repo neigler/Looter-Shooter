@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     [Header("Gun Properties")]
-    [SerializeField] public WeaponProperties currentWeapon;
+    [HideInInspector] public WeaponProperties currentWeapon;
     [SerializeField] private SpriteRenderer bodySprite;
     [SerializeField] private Sprite noWeaponSprite;
     [SerializeField] private Transform firePoint;
@@ -70,7 +70,7 @@ public class WeaponScript : MonoBehaviour
         {
             // Spawn bullet
             GameObject bulletCopy = Instantiate(bulletsPrefab, firePoint.position, this.transform.rotation);
-            bulletCopy.GetComponent<Rigidbody2D>().AddForce(firePoint.up * currentWeapon.bulletSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            bulletCopy.GetComponent<Rigidbody2D>().AddForce(firePoint.up * currentWeapon.bulletSpeed, ForceMode2D.Impulse);
         }
 
         // Start animation (Cam shake, play sound, muzzle flash)

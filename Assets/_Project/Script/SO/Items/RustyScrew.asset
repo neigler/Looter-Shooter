@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f00e453ff0917a34aa19878a371de54b, type: 3}
-  m_Name: Fish
+  m_Name: RustyScrew
   m_EditorClassIdentifier: 
-  sprite: {fileID: 4337684191699249041, guid: 1b478d530cd6d72479688f903119be7c, type: 3}
-  weight: 15
-  itemTag: 4
-  equipmentPrefab: {fileID: 5227452733035162822, guid: b21ef789d99f3b44bad7786e09d44074, type: 3}
+  sprite: {fileID: -97730868, guid: 1b478d530cd6d72479688f903119be7c, type: 3}
+  weight: 1
+  timeLeft: 0
+  totalTime: 0
+  itemTag: 0
+  equipmentPrefab: {fileID: 0}

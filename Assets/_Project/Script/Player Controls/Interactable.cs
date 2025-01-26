@@ -18,6 +18,14 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
+        if (inventory == null && item)
+        {
+            inventory = GameObject.Find("Inventory Background").GetComponent<Inventory>();
+        }
+        if (ws == null && weapon)
+        {
+            ws = GameObject.Find("WeaponController").GetComponent<WeaponScript>();
+        }
         if (Input.GetKeyDown(KeyCode.E) && inCollider && item)
         {
             inventory.items.Clear();

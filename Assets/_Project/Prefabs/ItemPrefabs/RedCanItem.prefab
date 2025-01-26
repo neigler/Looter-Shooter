@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2369750817694175133}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.98189414, w: 0.1894306}
+  m_LocalRotation: {x: 0, y: 0, z: -0.98189425, w: 0.18942966}
   m_LocalPosition: {x: -16.249, y: -2.351, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -268,4 +268,4 @@ MonoBehaviour:
   weaponProperties: {fileID: 0}
   inventory: {fileID: 0}
   ws: {fileID: 0}
-  highLight: {fileID: 0}
+  highLight: {fileID: 1622940386829827179}
