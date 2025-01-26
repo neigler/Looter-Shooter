@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
 
     [Header("Item Instantiates")]
     [SerializeField] GameObject nightVisionLight;
+    [SerializeField] GameObject flashLightGameObject;
     private GameObject nightVisionLightGameObject;
 
     void Awake()
@@ -114,11 +115,21 @@ public class Inventory : MonoBehaviour
                 {
                     // Destroy item.equipmentPrefab on the player object
                     Debug.Log("Unequipped helmet on " + tag);
+
+                    if (flashLightGameObject != null)
+                    {
+                        flashLightGameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     // Instanitiate item.equipmentPrefab on the player object;
                     Debug.Log("Equipped " + item.myItem.name + " on " + tag);
+
+                    if (item.myItem.name == "FlashLight")
+                    {
+                        flashLightGameObject.SetActive(true);
+                    }
                 }
                 break;
             case SlotTag.Legs:
