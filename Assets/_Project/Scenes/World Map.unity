@@ -554,6 +554,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1667496656}
+    - target: {fileID: 326074431749381833, guid: b5397f7b7508fa343824be6c03406551, type: 3}
+      propertyPath: shell
+      value: 
+      objectReference: {fileID: 6250023204193294733, guid: 973f97ccf2f563d45985318ffa7999d4, type: 3}
     - target: {fileID: 1156322922897181182, guid: b5397f7b7508fa343824be6c03406551, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1132,6 +1136,10 @@ PrefabInstance:
     - target: {fileID: 1699419467052209502, guid: ba8f3c6f0e5f90d41860e053dc768e1c, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699419467052209502, guid: ba8f3c6f0e5f90d41860e053dc768e1c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1861851355444281955, guid: ba8f3c6f0e5f90d41860e053dc768e1c, type: 3}
       propertyPath: m_AnchorMax.y

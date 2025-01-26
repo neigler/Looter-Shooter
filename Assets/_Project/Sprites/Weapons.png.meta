@@ -143,7 +143,7 @@ TextureImporter:
         width: 23
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -152,6 +152,28 @@ TextureImporter:
       bones: []
       spriteID: 4c87cdc45107e49489112d5b63d36aef
       internalID: -1336291769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 87
+        width: 1
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb83c65aabf42c4b82858d7a4b494c8
+      internalID: 191765912
       vertices: []
       indices: 
       edges: []
@@ -172,6 +194,7 @@ TextureImporter:
     nameFileIdTable:
       Rifle: 5601323976189978565
       RifleHighlight: -1336291769
+      Weapons_0: 191765912
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,6 +9,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletsPrefab;
     [SerializeField] public int bulletsLeft;
+    [SerializeField] private GameObject shell;
 
     [Header("Screen Shake Properties")]
     [SerializeField] private float scLength;
@@ -18,6 +19,7 @@ public class WeaponScript : MonoBehaviour
     private bool reloading;
     [HideInInspector] public bool holdingWeapon = true;
     [HideInInspector] public bool canShoot;
+
 
 
     private void Awake()
@@ -76,6 +78,7 @@ public class WeaponScript : MonoBehaviour
         // Start animation (Cam shake, play sound, muzzle flash)
         AudioManager.PlaySound(SoundType.SHOOT);
         cam.StartShake(scLength, scPower);
+        EjectShell();
 
         // Lower amounts of bullets left
         bulletsLeft--;
@@ -124,5 +127,18 @@ public class WeaponScript : MonoBehaviour
     private void ResetShot()
     {
         canShoot = true;
+    }
+
+    private void EjectShell()
+    {
+        GameObject ejectedShell = Instantiate(shell, transform.position, transform.rotation);
+        float xVnot = Random.Range(5f, 10f);
+        float yVnot = Random.Range(5f, 10f);
+        if (!(firePoint.rotation.eulerAngles.z >= 90 && firePoint.rotation.eulerAngles.z < 360))
+        {
+            xVnot *= -1;
+        }
+        ejectedShell.GetComponent<ShellCase>().xVnot = xVnot;
+        ejectedShell.GetComponent<ShellCase>().yVnot = yVnot;
     }
 }
