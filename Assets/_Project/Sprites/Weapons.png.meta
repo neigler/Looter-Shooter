@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapons_0
+      name: Shell Casing
       rect:
         serializedVersion: 2
         x: 6
@@ -165,7 +165,7 @@ TextureImporter:
         width: 1
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,6 +174,50 @@ TextureImporter:
       bones: []
       spriteID: bfb83c65aabf42c4b82858d7a4b494c8
       internalID: 191765912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Muzzle Flash
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 81
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00d54c568d96624fb7059faa39e9ffd
+      internalID: 1136161459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 89
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9dc5ee4064b5a43a0b05ce2b050198
+      internalID: -1734884873
       vertices: []
       indices: 
       edges: []
@@ -192,9 +236,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Muzzle Flash: 1136161459
       Rifle: 5601323976189978565
       RifleHighlight: -1336291769
-      Weapons_0: 191765912
+      Shell Casing: 191765912
+      Weapons_0: -1734884873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

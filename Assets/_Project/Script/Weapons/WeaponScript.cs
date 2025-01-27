@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -8,26 +9,31 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private Sprite noWeaponSprite;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletsPrefab;
-    [SerializeField] public int bulletsLeft;
     [SerializeField] private GameObject shell;
 
     [Header("Screen Shake Properties")]
     [SerializeField] private float scLength;
     [SerializeField] private float scPower;
     [SerializeField] private PlayerCamera cam;
+
+    [Header("Mag Size")]
+    public int mags;
+    public int magSize;
+    public int bulletsLeft;
+
+    [Header("Muzzle Flash Properties")]
+    [SerializeField] private GameObject flashSprite;
+    [Range(1, 25)][SerializeField] public int framesToFlash = 1;
+
     private bool shooting;
     private bool reloading;
     [HideInInspector] public bool holdingWeapon = true;
     [HideInInspector] public bool canShoot;
 
-
-
     private void Awake()
     {
         holdingWeapon = false;
         canShoot = true;
-        if (currentWeapon != null)
-            bulletsLeft = currentWeapon.magSize;
     }
 
     private void Update()
@@ -50,7 +56,7 @@ public class WeaponScript : MonoBehaviour
                 shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
             // Control reloading buttons
-            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < currentWeapon.magSize && !reloading)
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magSize && !reloading && mags != 0)
                 Reload();
 
             // Shoot if the requirements are met.
@@ -74,10 +80,16 @@ public class WeaponScript : MonoBehaviour
             GameObject bulletCopy = Instantiate(bulletsPrefab, firePoint.position, this.transform.rotation);
             bulletCopy.GetComponent<Rigidbody2D>().AddForce(firePoint.up * currentWeapon.bulletSpeed, ForceMode2D.Impulse);
         }
-
-        // Start animation (Cam shake, play sound, muzzle flash)
+        //Play Sound
         AudioManager.PlaySound(SoundType.SHOOT);
+
+        // Camera Shake
         cam.StartShake(scLength, scPower);
+
+        // Muzzle Flash
+        StartCoroutine(MuzzleFlash());
+
+        //Eject Shell
         EjectShell();
 
         // Lower amounts of bullets left
@@ -89,6 +101,9 @@ public class WeaponScript : MonoBehaviour
     {
         // Set reloading bool to true
         reloading = true;
+
+        // Lower amount of mags left
+        mags--;
 
         // Play sound
         AudioManager.PlaySound(SoundType.RELOAD);
@@ -114,12 +129,23 @@ public class WeaponScript : MonoBehaviour
     {
         // Finish reloading
         reloading = false;
-        bulletsLeft = currentWeapon.magSize;
+        bulletsLeft = magSize;
     }
 
     public void DropGun()
     {
-        Instantiate(currentWeapon.weaponPrefab, transform.position, Quaternion.identity);
+        // Spawn Dropped gun
+        GameObject droppedGun = Instantiate(currentWeapon.weaponPrefab, transform.position, Quaternion.identity);
+
+        // Get the dropped gun as a interactable script
+        Interactable interactableScript = droppedGun.GetComponent<Interactable>();
+
+        //Set Magazine settings
+        interactableScript.mags = mags;
+        interactableScript.magSize = magSize;
+        interactableScript.bulletsLeft = bulletsLeft;
+
+        //Reset Booleans
         currentWeapon = null;
         holdingWeapon = false;
     }
@@ -134,11 +160,25 @@ public class WeaponScript : MonoBehaviour
         GameObject ejectedShell = Instantiate(shell, transform.position, transform.rotation);
         float xVnot = Random.Range(5f, 10f);
         float yVnot = Random.Range(5f, 10f);
-        if (!(firePoint.rotation.eulerAngles.z >= 90 && firePoint.rotation.eulerAngles.z < 360))
+        if (!(firePoint.rotation.eulerAngles.z >= 90 && firePoint.rotation.eulerAngles.z < 270))
         {
             xVnot *= -1;
         }
         ejectedShell.GetComponent<ShellCase>().xVnot = xVnot;
         ejectedShell.GetComponent<ShellCase>().yVnot = yVnot;
+    }
+
+    IEnumerator MuzzleFlash()
+    {
+        //Muzzle flash affect.
+        flashSprite.SetActive(true);
+
+        var framesFlashed = 0;
+        while (framesFlashed < framesToFlash)
+        {
+            framesFlashed++;
+            yield return null;
+        }
+        flashSprite.SetActive(false);
     }
 }

@@ -53,8 +53,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorResolution: 650
-    - _DitherSpread: 0.0009
+    - _ColorResolution: 653.1
+    - _DitherSpread: 0.01
     - _EnableExternalAlpha: 0
     - _ZWrite: 0
     m_Colors:

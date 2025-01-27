@@ -11,9 +11,5 @@ public class WeaponProperties : ScriptableObject
     [SerializeField] public float reloadTime;
     [SerializeField] public float bulletSpeed;
     [SerializeField] public GameObject weaponPrefab;
-
-    [Header("Mag Properties")]
-    [SerializeField] public int magSize;
     [SerializeField] public bool isAutomatic;
-    [SerializeField] public bool autoReload;
 }

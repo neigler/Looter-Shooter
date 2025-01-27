@@ -3,11 +3,19 @@ using System;
 
 public class Interactable : MonoBehaviour
 {
+    [Header("Booleans")]
     public bool item, weapon;
     public Item invItem;
+
+    [Header("Weapon Values")]
     public WeaponProperties weaponProperties;
-    public Inventory inventory;
     public WeaponScript ws;
+    public int magSize;
+    public int mags;
+    public int bulletsLeft;
+
+    [Header("Item Values")]
+    public Inventory inventory;
     public GameObject highLight;
     bool inCollider = false;
 
@@ -41,11 +49,19 @@ public class Interactable : MonoBehaviour
             if (ws.currentWeapon != null)
                 Instantiate(ws.currentWeapon.weaponPrefab, transform.position, Quaternion.identity);
 
-            // Equip new one
+            // Play Sound
             AudioManager.PlaySound(SoundType.RELOAD);
+
+            // Equip gun
             ws.currentWeapon = weaponProperties;
             ws.holdingWeapon = true;
-            ws.bulletsLeft = ws.currentWeapon.magSize;
+
+            // Add Proper Mag Size
+            ws.bulletsLeft = bulletsLeft;
+            ws.mags = mags;
+            ws.magSize = magSize;
+
+            // Destroy Object
             Destroy(this.gameObject);
         }
     }
