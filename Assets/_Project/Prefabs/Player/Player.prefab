@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1002059587887337564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489752944351763332}
+  m_Layer: 9
+  m_Name: Melee Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1489752944351763332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002059587887337564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3184542707798010745}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156322922897181182
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648085301586044002}
   - component: {fileID: 2086478466812637025}
+  - component: {fileID: 655792484719635828}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -465,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9051975795268937003, guid: 8c3458136897e5146bbee58e2ac7eff1, type: 3}
+  m_Sprite: {fileID: 6228528938698568879, guid: 8c3458136897e5146bbee58e2ac7eff1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -476,6 +508,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &655792484719635828
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443257882827832949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f316f2f9b1bb2046b0273355be33d44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2928249549352807801
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +680,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4814413396867023359}
+  - {fileID: 1489752944351763332}
   m_Father: {fileID: 4842612380809753967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &326074431749381833
@@ -645,13 +700,26 @@ MonoBehaviour:
   noWeaponSprite: {fileID: 6228528938698568879, guid: 8c3458136897e5146bbee58e2ac7eff1, type: 3}
   firePoint: {fileID: 4814413396867023359}
   bulletsPrefab: {fileID: 5186737230254917059, guid: 2ed5b04f7abc01c4382cbe770017f649, type: 3}
-  bulletsLeft: 0
   shell: {fileID: 6250023204193294733, guid: 973f97ccf2f563d45985318ffa7999d4, type: 3}
+  animator: {fileID: 655792484719635828}
+  coolDownPeriodInSeconds: 0.1
+  meleeDamage: 15
+  invisiblePush: {fileID: 3086479172297862095, guid: 86a064e29fdd3d84aa969eaf32c86cf4, type: 3}
+  attackPoint: {fileID: 1489752944351763332}
+  attackRange: 0.37
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  canPunch: 0
   scLength: 0.1
   scPower: 0.2
   cam: {fileID: 0}
+  ammoText: {fileID: 0}
+  magSize: 0
+  bulletsLeft: 0
   flashSprite: {fileID: 2928249549352807801}
   framesToFlash: 5
+  projectileImages: []
   holdingWeapon: 1
   canShoot: 0
 --- !u!1001 &5823837070941902446

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.022, y: 0.183, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.725, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: Enemy
-  enemyHitParticle: {fileID: 3264217774108656786, guid: 857298a8981d09147ab17cb8d8d2c1f3, type: 3}
+  enemyHitParticle: {fileID: 6834411800944653613, guid: 2ad1d400d72b7ff4193dd7d224d505f9, type: 3}

@@ -33,6 +33,9 @@ public class EnemyAI : MonoBehaviour
     Vector2 direction;
     Vector2 temporarytarget;
 
+    public float notSeenSpeed;
+    public float seenSpeed;
+
     Seeker seeker;
     AIPath ai;
     Rigidbody2D rb;
@@ -76,12 +79,12 @@ public class EnemyAI : MonoBehaviour
         }
         if (state == State.Pursuing)
         {
-            ai.maxSpeed = 2.5f;
+            ai.maxSpeed = seenSpeed;
             StartCoroutine(pathToPlayer());
         }
         if (state == State.Wandering)
         {
-            ai.maxSpeed = 1f;
+            ai.maxSpeed = notSeenSpeed;
             if (ai.reachedEndOfPath)
             {
                 if (state == State.Wandering)

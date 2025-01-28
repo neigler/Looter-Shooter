@@ -143,13 +143,18 @@ public class WeaponScript : MonoBehaviour
         // Play an attack animation
         animator.SetTrigger("Attack");
 
+        // Audio
+        AudioManager.PlaySound(SoundType.PUNCHSOUND);
+
         // Detect enemies in hitbox
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         // Hurt enemies
         foreach (Collider2D enemy in hitEnemies)
         {
+            AudioManager.PlaySound(SoundType.BULLETHITENEMY);
             enemy.GetComponent<EnemyStats>().currentHealth -= meleeDamage;
+            enemy.GetComponent<SimpleFlash>().Flash();
             GameObject invisiblePushs = Instantiate(invisiblePush, attackPoint.position, this.transform.rotation);
             invisiblePushs.GetComponent<Rigidbody2D>().AddForce(firePoint.up * 100, ForceMode2D.Impulse);
         }

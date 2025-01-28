@@ -7,7 +7,8 @@ public enum SoundType
     RELOAD,
     BULLETHITWALL,
     BULLETHITENEMY,
-    ITEMPICKUP
+    ITEMPICKUP,
+    PUNCHSOUND
 }
 
 [RequireComponent(typeof(AudioSource))]

@@ -281,6 +281,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PlayerSpritesAndAnimations_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880cd4949a1e70147adb4156e9569da1
+      internalID: -1793419268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -302,6 +324,7 @@ TextureImporter:
       PlayerSpritesAndAnimations_2: 6228528938698568879
       PlayerSpritesAndAnimations_3: -8597802994122750066
       PlayerSpritesAndAnimations_4: 6250318911693503758
+      PlayerSpritesAndAnimations_5: -1793419268
       Punch: -980410805
       Rifle: -3191789036952181173
   mipmapLimitGroupName: 
