@@ -17,6 +17,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private Animator animator;
     public float coolDownPeriodInSeconds;
     public int meleeDamage;
+    public GameObject invisiblePush;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -149,6 +150,8 @@ public class WeaponScript : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyStats>().currentHealth -= meleeDamage;
+            GameObject invisiblePushs = Instantiate(invisiblePush, attackPoint.position, this.transform.rotation);
+            invisiblePushs.GetComponent<Rigidbody2D>().AddForce(firePoint.up * 100, ForceMode2D.Impulse);
         }
 
         StartCoroutine(StartCooldown());
