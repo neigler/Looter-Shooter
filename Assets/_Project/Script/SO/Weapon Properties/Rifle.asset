@@ -17,9 +17,7 @@ MonoBehaviour:
   damage: 25
   spread: 0
   bulletsPerShot: 1
-  reloadTime: 1
+  reloadTime: 0.5
   bulletSpeed: 100
   weaponPrefab: {fileID: 7044487954742044483, guid: e301822d225020f4e97f257401c1a9c7, type: 3}
-  magSize: 35
   isAutomatic: 1
-  autoReload: 0

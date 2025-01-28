@@ -236,9 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: 0
+  ammoBox: 0
   weapon: 1
   invItem: {fileID: 0}
   weaponProperties: {fileID: 11400000, guid: 11e586b27ddb56c40bd02eeea41bfc0f, type: 2}
-  inventory: {fileID: 0}
   ws: {fileID: 0}
+  magSize: 35
+  mags: 35
+  bulletsLeft: 35
+  inventory: {fileID: 0}
   highLight: {fileID: 2260552581943510078}

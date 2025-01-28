@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -11,13 +13,22 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private GameObject bulletsPrefab;
     [SerializeField] private GameObject shell;
 
+    [Header("Melee Properties")]
+    [SerializeField] private Animator animator;
+    public float coolDownPeriodInSeconds;
+    public int meleeDamage;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    [HideInInspector] public bool canPunch;
+
     [Header("Screen Shake Properties")]
     [SerializeField] private float scLength;
     [SerializeField] private float scPower;
     [SerializeField] private PlayerCamera cam;
 
     [Header("Mag Size")]
-    public int mags;
+    public TextMeshProUGUI ammoText;
     public int magSize;
     public int bulletsLeft;
 
@@ -25,19 +36,29 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private GameObject flashSprite;
     [Range(1, 25)][SerializeField] public int framesToFlash = 1;
 
+    [Header("GUI")]
+    public Image[] projectileImages;
+
     private bool shooting;
     private bool reloading;
     [HideInInspector] public bool holdingWeapon = true;
     [HideInInspector] public bool canShoot;
 
-    private void Awake()
+    private void Start()
     {
         holdingWeapon = false;
         canShoot = true;
+        canPunch = true;
+        StartCoroutine(StartCooldown());
+
+        UpdateAmmoUI();
     }
+
 
     private void Update()
     {
+        UpdateAmmoUI();
+
         // Input Managing and automatic managing
         WeaponInputManager();
 
@@ -55,16 +76,28 @@ public class WeaponScript : MonoBehaviour
             else
                 shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-            // Control reloading buttons
-            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magSize && !reloading && mags != 0)
-                Reload();
-
             // Shoot if the requirements are met.
             if (canShoot && shooting && !reloading && bulletsLeft > 0 && holdingWeapon)
                 FireWeapon();
 
             if (Input.GetKeyDown(KeyCode.Q) && holdingWeapon && !reloading)
                 DropGun();
+        }
+        else
+        {
+            if (!holdingWeapon && Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+            {
+                MeleePunch();
+            }
+        }
+
+        if (!holdingWeapon)
+        {
+            animator.enabled = true;
+        }
+        else
+        {
+            animator.enabled = false;
         }
     }
 
@@ -89,21 +122,65 @@ public class WeaponScript : MonoBehaviour
         // Muzzle Flash
         StartCoroutine(MuzzleFlash());
 
-        //Eject Shell
+        // Eject Shell
         EjectShell();
+
+        UpdateAmmoUI();
 
         // Lower amounts of bullets left
         bulletsLeft--;
         Invoke("ResetShot", currentWeapon.shootingCooldown);
     }
 
-    private void Reload()
+    void MeleePunch()
+    {
+
+        // Check if countdown is ready
+        if (canPunch == false)
+            return;
+
+        // Play an attack animation
+        animator.SetTrigger("Attack");
+
+        // Detect enemies in hitbox
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        // Hurt enemies
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyStats>().currentHealth -= meleeDamage;
+        }
+
+        StartCoroutine(StartCooldown());
+    }
+
+    public IEnumerator StartCooldown()
+    {
+        canPunch = false;
+
+        yield return new WaitForSeconds(coolDownPeriodInSeconds);
+
+        canPunch = true;
+    }
+
+
+    public void UpdateAmmoUI()
+    {
+
+        if (holdingWeapon == false)
+        {
+            ammoText.text = "";
+        }
+        else
+        {
+            ammoText.text = bulletsLeft + "/" + magSize;
+        }
+    }
+
+    public void Reload()
     {
         // Set reloading bool to true
         reloading = true;
-
-        // Lower amount of mags left
-        mags--;
 
         // Play sound
         AudioManager.PlaySound(SoundType.RELOAD);
@@ -125,11 +202,12 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-    private void FinishReload()
+    public void FinishReload()
     {
         // Finish reloading
         reloading = false;
         bulletsLeft = magSize;
+        UpdateAmmoUI();
     }
 
     public void DropGun()
@@ -141,13 +219,14 @@ public class WeaponScript : MonoBehaviour
         Interactable interactableScript = droppedGun.GetComponent<Interactable>();
 
         //Set Magazine settings
-        interactableScript.mags = mags;
         interactableScript.magSize = magSize;
         interactableScript.bulletsLeft = bulletsLeft;
+
 
         //Reset Booleans
         currentWeapon = null;
         holdingWeapon = false;
+        UpdateAmmoUI();
     }
 
     private void ResetShot()
@@ -167,7 +246,6 @@ public class WeaponScript : MonoBehaviour
         ejectedShell.GetComponent<ShellCase>().xVnot = xVnot;
         ejectedShell.GetComponent<ShellCase>().yVnot = yVnot;
     }
-
     IEnumerator MuzzleFlash()
     {
         //Muzzle flash affect.
@@ -180,5 +258,13 @@ public class WeaponScript : MonoBehaviour
             yield return null;
         }
         flashSprite.SetActive(false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -8,6 +8,7 @@ public class WorldController : MonoBehaviour
     [SerializeField] private GameObject MapGUI;
     [SerializeField] private PlayerMovement player;
     [SerializeField] private WeaponScript ws;
+    [SerializeField] private GameObject bulletCount;
     bool inCollider;
 
     [Header("Can Go?")]
@@ -29,6 +30,10 @@ public class WorldController : MonoBehaviour
     private void Leave()
     {
         LeaveButton.SetActive(true);
+        bulletCount.SetActive(false);
+        player.canMove = false;
+        player.canRotate = false;
+        ws.canShoot = false;
     }
 
     public void ButtonYes()
@@ -37,16 +42,15 @@ public class WorldController : MonoBehaviour
         MapGUI.SetActive(true);
         LeaveButton.SetActive(false);
         LeavePrompt.SetActive(false);
-
-        //De activate player
-        player.canMove = false;
-        player.canRotate = false;
-        ws.canShoot = false;
     }
     public void ButtonNo()
     {
         //Close Button
+        bulletCount.SetActive(true);
         LeaveButton.SetActive(false);
+        player.canMove = true;
+        player.canRotate = true;
+        ws.canShoot = true;
     }
 
     //Triggers
@@ -78,6 +82,7 @@ public class WorldController : MonoBehaviour
 
             //Re activate player.
             MapGUI.SetActive(false);
+            bulletCount.SetActive(true);
             player.canMove = true;
             player.canRotate = true;
             ws.canShoot = true;
@@ -94,6 +99,7 @@ public class WorldController : MonoBehaviour
 
             //Re activate player.
             MapGUI.SetActive(false);
+            bulletCount.SetActive(true);
             player.canMove = true;
             player.canRotate = true;
             ws.canShoot = true;

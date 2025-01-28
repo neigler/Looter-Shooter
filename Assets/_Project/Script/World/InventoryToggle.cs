@@ -10,7 +10,7 @@ public class InventoryToggle : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private WeaponScript weaponController;
     [SerializeField] private CanvasGroup canvasGroup;
-
+    [SerializeField] private GameObject bulletCount;
     [Header("Camera")]
     [SerializeField] private GameObject cameraGameObject;
     [SerializeField] private GameObject cameraMoveToLocation;
@@ -29,6 +29,7 @@ public class InventoryToggle : MonoBehaviour
             playerMovement.canRotate = false;
             cameraController.canMove = false;
             weaponController.canShoot = false;
+            bulletCount.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && opened)
         {
@@ -38,6 +39,7 @@ public class InventoryToggle : MonoBehaviour
             playerMovement.canRotate = true;
             cameraController.canMove = true;
             weaponController.canShoot = true;
+            bulletCount.SetActive(true);
         }
 
         if (opened)

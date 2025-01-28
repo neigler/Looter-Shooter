@@ -4,14 +4,15 @@ using System;
 public class Interactable : MonoBehaviour
 {
     [Header("Booleans")]
-    public bool item, weapon;
+    public bool item;
+    public bool ammoBox;
+    public bool weapon;
     public Item invItem;
 
     [Header("Weapon Values")]
     public WeaponProperties weaponProperties;
     public WeaponScript ws;
     public int magSize;
-    public int mags;
     public int bulletsLeft;
 
     [Header("Item Values")]
@@ -58,8 +59,10 @@ public class Interactable : MonoBehaviour
 
             // Add Proper Mag Size
             ws.bulletsLeft = bulletsLeft;
-            ws.mags = mags;
             ws.magSize = magSize;
+
+            //Update UI
+            ws.UpdateAmmoUI();
 
             // Destroy Object
             Destroy(this.gameObject);
@@ -72,7 +75,17 @@ public class Interactable : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             inCollider = true;
-            highLight.SetActive(true);
+
+            //Highlight
+            if (weapon || item)
+                highLight.SetActive(true);
+
+            //Ammo
+            if (ammoBox && ws.bulletsLeft != ws.magSize && ws.holdingWeapon)
+            {
+                ws.Reload();
+                Destroy(this.gameObject);
+            }
         }
     }
 

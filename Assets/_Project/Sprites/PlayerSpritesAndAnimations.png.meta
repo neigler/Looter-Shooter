@@ -260,15 +260,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpritesAndAnimations_5
+      name: Punch
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 96
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,7 +302,7 @@ TextureImporter:
       PlayerSpritesAndAnimations_2: 6228528938698568879
       PlayerSpritesAndAnimations_3: -8597802994122750066
       PlayerSpritesAndAnimations_4: 6250318911693503758
-      PlayerSpritesAndAnimations_5: -980410805
+      Punch: -980410805
       Rifle: -3191789036952181173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
